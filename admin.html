@@ -181,3 +181,154 @@
                     </div>
                 </div>
             </div>
+            <div id="courseManagementSection" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Course Management</h1>
+                        <p class="page-subtitle">Manage all courses in the system</p>
+                    </div>
+                </header>
+                <div class="page-body">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 style="font-size: 1.125rem;">All Courses</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Course ID</th>
+                                        <th>Course Name</th>
+                                        <th>Semester</th>
+                                        <th>Assigned Teachers</th>
+                                        <th>Enrolled Students</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="coursesTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="attendanceReportSection" style="display: none;">
+                <header class="page-header">
+                    <div>
+                        <h1 class="page-title">Attendance Reports</h1>
+                        <p class="page-subtitle">View attendance statistics and reports</p>
+                    </div>
+                </header>
+                <div class="page-body">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 style="font-size: 1.125rem;">Student Attendance Summary</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Student ID</th>
+                                        <th>Student Name</th>
+                                        <th>Present Days</th>
+                                        <th>Absent Days</th>
+                                        <th>Total Classes</th>
+                                        <th>Attendance %</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="attendanceReportBody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <div class="modal-overlay" id="addUserModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Add New User</h3>
+                <button class="modal-close" id="closeUserModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm">
+                    <div class="form-group">
+                        <label class="form-label" for="newUserRole">Role</label>
+                        <select id="newUserRole" class="form-select" required>
+                            <option value="">Select Role</option>
+                            <option value="admin">Admin</option>
+                            <option value="teacher">Teacher</option>
+                            <option value="student">Student</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserId">User ID</label>
+                        <input type="text" id="newUserId" class="form-input" placeholder="e.g., STU001" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserName">Full Name</label>
+                        <input type="text" id="newUserName" class="form-input" placeholder="Enter full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserEmail">Email</label>
+                        <input type="email" id="newUserEmail" class="form-input" placeholder="Enter email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="newUserPassword">Password</label>
+                        <input type="password" id="newUserPassword" class="form-input" placeholder="Enter password" required>
+                    </div>
+
+                    <div id="teacherCoursesGroup" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">Assign Courses (Teacher)</label>
+                            <div id="teacherCoursesList" style="display: grid; gap: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="studentSemesterGroup" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label" for="studentSemester">Semester</label>
+                            <select id="studentSemester" class="form-select">
+                                <option value="">Select Semester</option>
+                                <option value="1">Semester 1</option>
+                                <option value="3">Semester 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Assign Courses (Student)</label>
+                            <div id="studentCoursesList" style="display: grid; gap: 0.5rem;">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelUserModal">Cancel</button>
+                <button class="btn btn-primary" id="saveUserBtn">Add User</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="js/storage.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/attendance.js"></script>
+    <script src="js/results.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
